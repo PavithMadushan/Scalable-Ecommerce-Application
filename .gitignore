@@ -343,3 +343,6 @@ swagger-ui/
 ## Client secrets
 client_secrets.json
 appsettings.Development.json.user
+
+# Other
+repomix-output

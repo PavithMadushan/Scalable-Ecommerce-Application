@@ -14,4 +14,9 @@
 		<ProjectReference Include="..\Basket.Core\Basket.Core.csproj" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="Commands\" />
+	  <Folder Include="DTOs\" />
+	</ItemGroup>
+
 </Project>

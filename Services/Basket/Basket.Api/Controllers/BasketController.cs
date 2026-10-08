@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Basket.Api.Controllers
 {
     [ApiController]
+    [Route("api/v1/[controller]")]
     public class BasketController : ControllerBase
     {
         private readonly IMediator _mediator;
@@ -17,7 +18,7 @@ namespace Basket.Api.Controllers
         }
 
         //Get:api/v1/basket/{username}
-        [HttpGet("{username}")]
+        [HttpGet("{userName}")]
         public async Task<ActionResult<ShoppingCartDto>> GetBasket(string userName)
         {
             var query = new GetBasketByUserNameQuery(userName);

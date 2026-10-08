@@ -3,7 +3,7 @@
     public record ShoppingCartDto(
         string userName,
         List<ShoppingCardItemDto> Items,
-        decimal TitalPrice
+        decimal TotalPrice
         );
     public record ShoppingCardItemDto(
         string ProductId,

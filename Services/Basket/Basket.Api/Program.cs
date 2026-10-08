@@ -35,7 +35,7 @@ builder.Services.Configure<CacheSettings>(
 //Redis
 builder.Services.AddStackExchangeRedisCache((options) =>
 {
-    options.Configuration = builder.Configuration.GetSection("CacheSettings").GetValue<string>("ConectionString");
+    options.Configuration = builder.Configuration.GetSection("CacheSettings").GetValue<string>("ConnectionString");
 });
 
 
@@ -52,7 +52,10 @@ app.UseSwagger();
 
 app.UseSwaggerUI();
 
-app.UseHttpsRedirection();
+if (!app.Environment.IsDevelopment())
+{
+    app.UseHttpsRedirection();
+}
 
 app.UseAuthorization();
 

@@ -1,7 +1,7 @@
 ﻿using Discount.Application.Commands;
 using Discount.Application.DTOs;
 using Discount.Core.Entities;
-using System.Windows.Input;
+using Discount.Grpc.Protos;
 
 namespace Discount.Application.Mappers
 {
@@ -21,7 +21,7 @@ namespace Discount.Application.Mappers
         {
             return new Coupon
             {
-                
+
                 ProductName = command.ProductName,
                 Description = command.Description,
                 Amount = command.Amount
@@ -36,6 +36,18 @@ namespace Discount.Application.Mappers
                 ProductName = command.ProductName,
                 Description = command.Description,
                 Amount = command.Amount
+            };
+        }
+
+        public static CouponModel ToModel(this CouponDto dto)
+        {
+            return new CouponModel
+            {
+                Id = dto.Id,
+                ProductName = dto.ProductName,
+                Description = dto.Description,
+                Amount = dto.Amount
+
             };
         }
     }

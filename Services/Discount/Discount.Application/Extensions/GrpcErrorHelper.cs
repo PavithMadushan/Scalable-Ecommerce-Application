@@ -35,7 +35,7 @@ namespace Discount.Application.Extensions
                 { "grpc-status-details-bin", status.ToByteArray() }
             };
 
-            return new RpcException(new Grpc.Core.Status(StatusCode.InvalidArgument, "Validation Errors"), trailers);
+            return new RpcException(new global::Grpc.Core.Status(global::Grpc.Core.StatusCode.InvalidArgument, "Validation Errors"), trailers);
         }
     }
 }

@@ -3,6 +3,7 @@ using Discount.Grpc.Protos;
 using Discount.Application.Mappers;
 using MediatR;
 using Grpc.Core;
+using Discount.Application.Commands;
 
 namespace Discount.API.Services
 {
@@ -21,5 +22,30 @@ namespace Discount.API.Services
             var dto = await _mediator.Send(query);
             return dto.ToModel();
         }
+
+        public override async Task<CouponModel> CreateDiscount(CreateDiscountRequest request, ServerCallContext context)
+        {
+            var cmd = request.Coupon.ToCreateCommand();
+            var dto=await _mediator.Send(cmd);
+            return dto.ToModel();
+        }
+
+        public override async Task<CouponModel> UpdateDiscount(UpdateDiscountRequest request, ServerCallContext context)
+        {
+            var cmd = request.Coupon.ToUpdateCommand();
+            var dto = await _mediator.Send(cmd);
+            return dto.ToModel();
+        }
+
+        public override async Task<DeleteDiscountResponse> DeleteDiscount(DeleteDiscountRequest request, ServerCallContext context)
+        {
+            var cmd = new DeleteDiscountCommand(request.ProductName);
+            var deleted = await _mediator.Send(cmd); // Await the Task<bool> to get the result.  
+            return new DeleteDiscountResponse
+            {
+                Success = deleted
+            };
+        }
+
     }
 }

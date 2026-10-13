@@ -50,5 +50,23 @@ namespace Discount.Application.Mappers
 
             };
         }
+
+        public static CreateDiscountCommand ToCreateCommand(this CouponModel model)
+        {
+            return new CreateDiscountCommand(
+
+                model.ProductName,
+                model.Description,
+                model.Amount);
+        }
+
+        public static UpdateDiscountCommand ToUpdateCommand(this CouponModel model)
+        {
+            return new UpdateDiscountCommand(
+                model.Id,
+                model.ProductName,
+                model.Description,
+                model.Amount);
+        }
     }
 }

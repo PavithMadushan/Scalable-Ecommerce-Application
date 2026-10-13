@@ -40,7 +40,7 @@ namespace Discount.Application.Handlers
 
             if (!created)
             {
-                throw new RpcException(new Status(StatusCode.Internal, $"Could not get discount for product: {request.ProductName}"));
+                throw new RpcException(new Status(StatusCode.Internal, $"Could not create discount for product: {request.ProductName}"));
             }
 
             //Return DTO

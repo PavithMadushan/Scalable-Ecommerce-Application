@@ -27,5 +27,16 @@ namespace Discount.Application.Mappers
                 Amount = command.Amount
             };
         }
+
+        public static Coupon ToEntity(this UpdateDiscountCommand command)
+        {
+            return new Coupon
+            {
+
+                ProductName = command.ProductName,
+                Description = command.Description,
+                Amount = command.Amount
+            };
+        }
     }
 }

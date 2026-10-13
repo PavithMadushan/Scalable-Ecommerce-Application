@@ -3,6 +3,6 @@ using MediatR;
 
 namespace Discount.Application.Queries
 {
-    public record GetDiscountQuery(string productName):IRequest<CouponDto>;
+    public record GetDiscountQuery(string ProductName):IRequest<CouponDto>;
     
 }

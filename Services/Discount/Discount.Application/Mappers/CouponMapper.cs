@@ -1,5 +1,7 @@
-﻿using Discount.Application.DTOs;
+﻿using Discount.Application.Commands;
+using Discount.Application.DTOs;
 using Discount.Core.Entities;
+using System.Windows.Input;
 
 namespace Discount.Application.Mappers
 {
@@ -13,6 +15,17 @@ namespace Discount.Application.Mappers
                 Coupon.Description,
                 Coupon.Amount);
 
+        }
+
+        public static Coupon ToEntity(this CreateDiscountCommand command)
+        {
+            return new Coupon
+            {
+                
+                ProductName = command.ProductName,
+                Description = command.Description,
+                Amount = command.Amount
+            };
         }
     }
 }

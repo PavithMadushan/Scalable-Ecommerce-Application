@@ -1,8 +1,26 @@
 services:
   catalogdb:
     image: mongo  
+
   basketdb:
     image: redis:alpine 
+
+  discountdb:
+    container_name: discountdb
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=Password@1
+      - POSTGRES_DB=DiscountDb
+    restart: always
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U admin"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   catalog:
     image: ${DOCKER_REGISTRY-}catalog
@@ -16,5 +34,13 @@ services:
       context: .
       dockerfile: Services/Basket/Basket.Api/Dockerfile
 
+  discount:
+    image: ${DOCKER_REGISTRY-}discount
+    build:
+      context: .
+      dockerfile: Services/Discount/Discount.API/Dockerfile
+
 volumes:
  mongo_data:
+ postgres_data:
+

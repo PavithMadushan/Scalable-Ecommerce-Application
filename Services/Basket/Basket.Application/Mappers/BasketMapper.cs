@@ -50,7 +50,7 @@ namespace Basket.Application.Mappers
                     Quantity = item.Quantity,
                     ImageFile = item.ImageFile,
                     Price = item.Price,
-                    ProductId = item.ProductId,
+                    ProductId = item.ProductID,
                     ProductName = item.ProductName,
                 }
                 ).ToList()

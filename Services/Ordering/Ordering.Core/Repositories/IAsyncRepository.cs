@@ -1,5 +1,4 @@
-﻿using Ordering.Core.Common;
-using Ordering.Core.Entities;
+﻿using Ordering.Core.Entities;
 using System.Linq.Expressions;
 
 namespace Ordering.Core.Repositories

@@ -1,4 +1,5 @@
-﻿using Ordering.Core.Entities;
+﻿using Ordering.Core.Common;
+using Ordering.Core.Entities;
 using System.Linq.Expressions;
 
 namespace Ordering.Core.Repositories
@@ -9,7 +10,8 @@ namespace Ordering.Core.Repositories
         Task<IReadOnlyList<T>> GetAllAsync(Expression<Func<T, bool>> predicate);
         Task<T> GetByIdAsync(int id);
         Task<T> AddAsync(T entity);
-        Task<T> UpdateAsync(T entity);
-        Task<T> DeleteAsync(int id);
+        Task UpdateAsync(T entity);
+        Task DeleteAsync(T entity);
+
     }
 }

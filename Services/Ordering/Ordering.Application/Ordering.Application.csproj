@@ -14,7 +14,6 @@
     <Folder Include="Mapper\" />
     <Folder Include="Orders\CreateOrder\" />
     <Folder Include="Orders\DeleteOrder\" />
-    <Folder Include="Orders\GetOrders\" />
     <Folder Include="Orders\UpdateOrder\" />
   </ItemGroup>
 

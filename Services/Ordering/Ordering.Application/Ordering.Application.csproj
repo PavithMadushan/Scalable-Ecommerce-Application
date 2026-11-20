@@ -14,4 +14,8 @@
     <Folder Include="Orders\UpdateOrder\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="11.0.0" />
+  </ItemGroup>
+
 </Project>
